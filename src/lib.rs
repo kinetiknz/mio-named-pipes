@@ -710,7 +710,7 @@ impl BufferPool {
 
     fn put(&mut self, mut buf: Vec<u8>) {
         if self.pool.len() < self.pool.capacity() {
-            unsafe { buf.set_len(0); }
+            buf.clear();
             self.pool.push(buf);
         }
     }
